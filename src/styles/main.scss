@@ -1,0 +1,88 @@
+
+// Custom Mixins
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == "sm" {
+    @media (min-width: 640px) { @content; }
+  } @else if $breakpoint == "md" {
+    @media (min-width: 768px) { @content; }
+  } @else if $breakpoint == "lg" {
+    @media (min-width: 1024px) { @content; }
+  } @else if $breakpoint == "xl" {
+    @media (min-width: 1280px) { @content; }
+  } @else if $breakpoint == "2xl" {
+    @media (min-width: 1536px) { @content; }
+  }
+}
+
+// Custom Animations
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.floating {
+  animation: float 5s ease-in-out infinite;
+}
+
+// Service Card Hover Effects
+.service-card {
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    
+    .service-icon {
+      color: theme('colors.makjuz.secondary');
+      transform: scale(1.1);
+    }
+  }
+  
+  .service-icon {
+    transition: all 0.3s ease;
+  }
+}
+
+// Input Focus Styles
+input, textarea {
+  &:focus {
+    border-color: theme('colors.makjuz.primary');
+    box-shadow: 0 0 0 2px rgba(155, 135, 245, 0.2);
+  }
+}
+
+// Custom Button Styles
+.btn-gradient {
+  background: linear-gradient(90deg, theme('colors.makjuz.primary'), theme('colors.makjuz.secondary'));
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: linear-gradient(90deg, theme('colors.makjuz.secondary'), theme('colors.makjuz.primary'));
+    transform: translateY(-2px);
+  }
+}
+
+// Section Transitions
+.section-transition {
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: #fff;
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+    z-index: 10;
+  }
+}
