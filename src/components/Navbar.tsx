@@ -39,13 +39,15 @@ const Navbar = () => {
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'
+        isScrolled 
+          ? 'backdrop-blur-lg bg-[#1a1429]/80 shadow-lg shadow-purple-900/20 py-2' 
+          : 'bg-transparent py-4'
       }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         <div className="flex items-center">
           <span className="text-2xl font-bold text-makjuz-primary">Makjuz</span>
-          <span className="text-2xl font-bold text-makjuz-secondary">Tech</span>
+          <span className="text-2xl font-bold text-purple-200">Tech</span>
         </div>
         
         {/* Desktop Navigation */}
@@ -57,19 +59,19 @@ const Navbar = () => {
               smooth={true}
               duration={500}
               offset={-70}
-              className="text-gray-700 hover:text-makjuz-primary font-medium cursor-pointer transition-colors"
+              className="text-purple-100 hover:text-makjuz-primary font-medium cursor-pointer transition-colors"
             >
               {item.name}
             </ScrollLink>
           ))}
-          <Button className="bg-makjuz-primary hover:bg-makjuz-secondary text-white">
+          <Button className="bg-makjuz-primary hover:bg-makjuz-secondary text-white glow">
             Get Started
           </Button>
         </nav>
 
         {/* Mobile Navigation Toggle */}
         <button
-          className="md:hidden text-gray-700 focus:outline-none"
+          className="md:hidden text-purple-100 focus:outline-none"
           onClick={toggleMenu}
           aria-label="Toggle menu"
         >
@@ -79,7 +81,7 @@ const Navbar = () => {
 
       {/* Mobile Navigation Menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white shadow-lg">
+        <div className="md:hidden bg-[#1a1429]/95 backdrop-blur-lg shadow-lg">
           <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
             {navItems.map((item) => (
               <ScrollLink
@@ -88,13 +90,13 @@ const Navbar = () => {
                 smooth={true}
                 duration={500}
                 offset={-70}
-                className="text-gray-700 hover:text-makjuz-primary font-medium py-2 cursor-pointer"
+                className="text-purple-100 hover:text-makjuz-primary font-medium py-2 cursor-pointer"
                 onClick={closeMenu}
               >
                 {item.name}
               </ScrollLink>
             ))}
-            <Button className="bg-makjuz-primary hover:bg-makjuz-secondary text-white w-full">
+            <Button className="bg-makjuz-primary hover:bg-makjuz-secondary text-white w-full glow">
               Get Started
             </Button>
           </div>

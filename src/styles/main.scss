@@ -27,45 +27,160 @@
   }
 }
 
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px rgba(155, 135, 245, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(155, 135, 245, 0.6);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(155, 135, 245, 0.3);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes rotateIn {
+  from {
+    transform: rotate(-10deg) scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: rotate(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes wave {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
 .floating {
   animation: float 5s ease-in-out infinite;
 }
 
+.glow {
+  animation: glow 3s ease-in-out infinite;
+}
+
+.shimmer {
+  background: linear-gradient(90deg, 
+    rgba(255, 255, 255, 0) 0%, 
+    rgba(255, 255, 255, 0.05) 50%, 
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+.rotate-in {
+  animation: rotateIn 0.6s ease-out forwards;
+}
+
+.wave {
+  animation: wave 3s ease-in-out infinite;
+}
+
 // Service Card Hover Effects
 .service-card {
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-style: preserve-3d;
+  perspective: 1000px;
   
   &:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    transform: translateY(-15px) rotateX(5deg);
+    box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.3);
     
     .service-icon {
-      color: theme('colors.makjuz.secondary');
-      transform: scale(1.1);
+      color: theme('colors.makjuz.primary');
+      transform: scale(1.2) translateZ(20px);
+      filter: drop-shadow(0 0 8px rgba(155, 135, 245, 0.6));
+    }
+    
+    &::before {
+      opacity: 1;
     }
   }
   
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(155, 135, 245, 0.1), rgba(126, 105, 171, 0.05));
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  
   .service-icon {
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform: translateZ(0);
   }
 }
 
 // Input Focus Styles
 input, textarea {
+  background-color: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  
   &:focus {
     border-color: theme('colors.makjuz.primary');
-    box-shadow: 0 0 0 2px rgba(155, 135, 245, 0.2);
+    box-shadow: 0 0 0 2px rgba(155, 135, 245, 0.3);
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  &:hover {
+    border-color: rgba(155, 135, 245, 0.5);
   }
 }
 
 // Custom Button Styles
 .btn-gradient {
   background: linear-gradient(90deg, theme('colors.makjuz.primary'), theme('colors.makjuz.secondary'));
-  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+      rgba(255, 255, 255, 0) 0%, 
+      rgba(255, 255, 255, 0.2) 50%, 
+      rgba(255, 255, 255, 0) 100%
+    );
+    transition: all 0.6s ease;
+  }
   
   &:hover {
     background: linear-gradient(90deg, theme('colors.makjuz.secondary'), theme('colors.makjuz.primary'));
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px -5px rgba(155, 135, 245, 0.4);
+    
+    &::before {
+      left: 100%;
+    }
   }
 }
 
@@ -81,8 +196,54 @@ input, textarea {
     left: 0;
     width: 100%;
     height: 50px;
-    background: #fff;
+    background: rgba(26, 20, 35, 0.5);
     border-radius: 50% 50% 0 0 / 100% 100% 0 0;
     z-index: 10;
+    backdrop-filter: blur(5px);
+  }
+}
+
+// Particle background
+.particles-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(155, 135, 245, 0.3);
+  pointer-events: none;
+  
+  &:nth-child(odd) {
+    animation: float 8s infinite alternate;
+  }
+  
+  &:nth-child(even) {
+    animation: float 12s infinite alternate-reverse;
+  }
+}
+
+// Glass card styles
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+// 3D tilt effect
+.tilt-card {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  
+  .tilt-content {
+    transform: translateZ(20px);
+    transition: all 0.3s ease-out;
   }
 }
