@@ -77,8 +77,8 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <div className={`lg:col-span-2 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className={`md:col-span-2 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
             <Card className="glass-card shadow-xl border-none">
               <CardContent className="p-6">
                 <form onSubmit={handleSubmit} className="space-y-6">
@@ -171,19 +171,6 @@ const Contact = () => {
                   </CardContent>
                 </Card>
               ))}
-              
-              <Card 
-                className={`glass-card border-none overflow-hidden ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}
-                style={{ animationDelay: '600ms' }}
-              >
-                <CardContent className="p-0">
-                  <div className="w-full h-64 bg-gradient-to-br from-makjuz-primary/20 to-makjuz-secondary/10">
-                    <div className="w-full h-full flex items-center justify-center">
-                      <span className="text-purple-100/70">Map Here</span>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
             </div>
           </div>
         </div>
