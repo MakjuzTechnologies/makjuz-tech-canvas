@@ -74,9 +74,9 @@ const Services = () => {
   return (
     <section id="services" className="section-padding relative z-10 bg-gradient-to-b from-[#271b3d] to-[#1a1429]" ref={sectionRef}>
       <div className="container mx-auto px-4">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl font-bold mb-4 text-transparent bg-gradient-to-r from-purple-300 to-pink-200 bg-clip-text animate-fade-in">Our Services</h2>
-          <div className="w-24 h-1 bg-makjuz-primary mx-auto mb-6 animate-slide-in"></div>
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <h2 className="text-3xl font-bold mb-3 text-transparent bg-gradient-to-r from-purple-300 to-pink-200 bg-clip-text animate-fade-in">Our Services</h2>
+          <div className="w-24 h-1 bg-makjuz-primary mx-auto mb-4 animate-slide-in"></div>
           <p className="text-purple-100/80 text-lg animate-fade-in delay-200">
             We offer a comprehensive range of technology and digital marketing services to help your business thrive in the digital landscape
           </p>

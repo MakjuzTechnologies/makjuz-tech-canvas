@@ -15,12 +15,12 @@ const contactInfo = [
   {
     icon: <Mail size={24} className="text-makjuz-primary" />,
     title: 'Email',
-    details: 'info@makjuztech.com',
+    details: 'admin@makjuz.com',
   },
   {
     icon: <MapPin size={24} className="text-makjuz-primary" />,
     title: 'Address',
-    details: '123 Business Avenue, Tech City, 10001',
+    details: 'Kanchipuram Tamilnadu',
   },
 ];
 
@@ -69,9 +69,9 @@ const Contact = () => {
   return (
     <section id="contact" className="section-padding bg-gradient-to-b from-[#271b3d] to-[#1a1429] relative z-10" ref={sectionRef}>
       <div className="container mx-auto px-4">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl font-bold mb-4 text-transparent bg-gradient-to-r from-purple-300 to-pink-200 bg-clip-text animate-fade-in">Contact Us</h2>
-          <div className="w-24 h-1 bg-makjuz-primary mx-auto mb-6 animate-slide-in"></div>
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <h2 className="text-3xl font-bold mb-3 text-transparent bg-gradient-to-r from-purple-300 to-pink-200 bg-clip-text animate-fade-in">Contact Us</h2>
+          <div className="w-24 h-1 bg-makjuz-primary mx-auto mb-4 animate-slide-in"></div>
           <p className="text-purple-100/80 text-lg animate-fade-in delay-200">
             Have questions or ready to start your project? Get in touch with our team and we'll get back to you shortly.
           </p>

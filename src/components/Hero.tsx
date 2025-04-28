@@ -20,7 +20,7 @@ const Hero = () => {
   }, []);
   
   return (
-    <section id="home" className="pt-32 pb-20 md:pt-36 md:pb-28 relative z-10">
+    <section id="home" className="pt-32 pb-16 md:pt-36 md:pb-24 relative z-10">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className={`space-y-8 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
@@ -45,15 +45,6 @@ const Hero = () => {
               <Button variant="outline" className="border-makjuz-primary text-makjuz-primary hover:bg-makjuz-primary/10 px-6 py-6 text-lg">
                 Our Services
               </Button>
-            </div>
-            <div className="pt-4 animate-fade-in delay-400">
-              <p className="text-sm text-purple-200/60">Trusted by 200+ businesses worldwide</p>
-              <div className="flex flex-wrap gap-6 mt-3 opacity-50">
-                <div className="w-24 h-8 bg-purple-300/10 rounded glass-card floating"></div>
-                <div className="w-24 h-8 bg-purple-300/10 rounded glass-card floating" style={{animationDelay: "1s"}}></div>
-                <div className="w-24 h-8 bg-purple-300/10 rounded glass-card floating" style={{animationDelay: "1.5s"}}></div>
-                <div className="w-24 h-8 bg-purple-300/10 rounded glass-card floating" style={{animationDelay: "0.7s"}}></div>
-              </div>
             </div>
           </div>
           <div className={`hidden lg:block ${isVisible ? 'rotate-in' : 'opacity-0'}`}>
